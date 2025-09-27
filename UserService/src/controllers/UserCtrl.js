@@ -132,8 +132,7 @@ const forgotPassword = async (req, res) => {
 
       const resetLink = `http://localhost:3000/reset-password/${resetToken}`;
 
-    // Call Mail Service
-    await axios.post("http://localhost:4000/sendmail", {
+    await axios.post("http://localhost:3001/sendmail", {
       to: email,
       subject: "Password Reset Request",
       html: `<p>Hello ${user.name},</p>

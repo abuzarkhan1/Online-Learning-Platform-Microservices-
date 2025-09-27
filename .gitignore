@@ -4,3 +4,8 @@ package-lock.json
 .DS_Store
 dist
 *.log
+__pycache__
+requirements.txt
+.vscode
+.idea
+*.iml
