@@ -1,7 +1,7 @@
 from fastapi import FastAPI, Request
 from .config.logger import logger
 from .config.database import Base, engine
-from .routes import course_route
+from .routes import course_route, lesson_route
 import time
 
 
@@ -9,7 +9,10 @@ Base.metadata.create_all(bind=engine)
 
 
 app = FastAPI(title="Course Service")
+
 app.include_router(course_route.router)
+app.include_router(lesson_route.router)
+
 
 @app.middleware("http")
 async def log_requests(request: Request, call_next):
